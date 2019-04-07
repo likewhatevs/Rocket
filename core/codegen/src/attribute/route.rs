@@ -377,6 +377,7 @@ fn codegen_route(route: Route) -> Result<TokenStream> {
         #user_handler_fn
 
         /// Rocket code generated wrapping route function.
+        #[doc(hidden)]
         #vis fn #generated_fn_name<'_b>(
             #req: &'_b #Request,
             #data: #Data
@@ -390,10 +391,12 @@ fn codegen_route(route: Route) -> Result<TokenStream> {
         }
 
         /// Rocket code generated wrapping URI macro.
+        #[doc(hidden)]
         #generated_internal_uri_macro
 
         /// Rocket code generated static route info.
         #[allow(non_upper_case_globals)]
+        #[doc(hidden)]
         #vis static #generated_struct_name: #StaticRouteInfo =
             #StaticRouteInfo {
                 name: stringify!(#user_handler_fn_name),
